@@ -20,8 +20,7 @@ This weeks assignment was to show a user a 9-5 workday planner.
 Upon opening the link, the user can see a few things:
 
 -Current Date
-![img of current date]
-(Screenshot (69).png)
+![] (Screenshot%20(69).png)
 
 -Time blocks ranging from 9-5
 -Text area for notes/errand reminders to be placed
