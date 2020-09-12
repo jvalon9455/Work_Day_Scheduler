@@ -84,21 +84,21 @@ function saveText() {
 }
 
 // create function to save the text after page is refreshed
-function getUsersText(){
+function getUsersText() {
     var storedTimeofText = JSON.parse(localStorage.getItem("Time"));
     var storedUsersText = JSON.parse(localStorage.getItem("Text"));
 
-    if ((storedTimeofText !== null) && storedUsersText !== null){
+    if ((storedTimeofText !== null) && storedUsersText !== null) {
         usersTimeofText = storedTimeofText;
         usersTextContent = storedUsersText;
 
-        for (var i = 0; i < usersTextContent.length; i++){
-            if(timeColumn.text() === usersTimeofText[i]){
+        for (var i = 0; i < usersTextContent.length; i++) {
+            if (timeColumn.text() === usersTimeofText[i]) {
                 eventBlock.text(usersTextContent[i]);
             }
         }
 
-    } 
+    }
 }
 
 
