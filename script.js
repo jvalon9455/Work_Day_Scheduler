@@ -4,9 +4,9 @@ var m = moment();
 var toDoListHours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 
 $(document).ready(function () {
+    var currentDate = $("#currentDay");
+    $("#currentDay").text(m.format("dddd MMM Do YYYY"));
     
-    var currentDayDisplay = $("#currentDay");
-    $("#currentDay").text(m.format("MMMM Do YYYY"));
 })
 
 // create global variables 
@@ -14,6 +14,7 @@ $(document).ready(function () {
 
 
 var mainContainer = $(".container");
+mainContainer.addClass()
 
 
 
@@ -25,14 +26,18 @@ for (var i = 0; i < toDoListHours.length; i++) {
     mainContainer.append(newRow);
     console.log(toDoListHours);
 
+    // column for time
     var timeColumn = $("<div>");
     timeColumn.addClass("col-sm-2 hour");
+    timeColumn.text(toDoListHours[i] + ":00");
     newRow.append(timeColumn);
 
-    var eventBlock = $("<div>");
-    eventBlock.addClass("col-sm-8 textarea");
+    // column for text/description area
+    var eventBlock = $("<textarea>");
+    eventBlock.addClass("description col-sm-8 textarea");
     newRow.append(eventBlock);
 
+    // column for save button
     var saveBtn = $("<div>");
     saveBtn.addClass("col-sm-2 saveBtn");
     newRow.append(saveBtn);
