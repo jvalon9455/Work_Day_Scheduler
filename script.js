@@ -2,6 +2,8 @@ console.log("You got this!")
 
 var m = moment();
 var toDoListHours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
+var usersTimeofText = [];
+var usersTextContent = [];
 
 // add current date to browser
 $(document).ready(function () {
@@ -11,13 +13,8 @@ $(document).ready(function () {
 })
 
 // create global variables 
-
-
-
 var mainContainer = $(".container");
 mainContainer.addClass()
-
-
 
 
 // loop the array and create columns and rows for seperate time schedule
@@ -46,24 +43,46 @@ for (var i = 0; i < toDoListHours.length; i++) {
     // column for save button
     var saveBtn = $("<button>");
     saveBtn.addClass("col-sm-2 saveBtn");
+    saveBtn.addClass('saveBtn i:hover');
     newRow.append(saveBtn);
 
-    // changes text area color based on current time
+    // functions list
     colorBlock(hour);
+    saveText();
+    getUsersText();
 
 }
 // function to change text area color based on current time
 function colorBlock(hour) {
     if (toDoListHours[i] < hour) {
-        eventBlock.addClass('past');
+        eventBlock.addClass("past");
     }
     else if (toDoListHours[i] == hour) {
-        eventBlock.addClass('present');
+        eventBlock.addClass("present");
     }
     else {
-        eventBlock.addClass('future');
+        eventBlock.addClass("future");
     }
 }
+
+// create a save button to save users text into local storage
+function saveText() {
+    saveBtn.on("click", function () {
+        var saveTextTime = $(this).siblings("div").text();
+        var usersText = $(this).siblings("textarea").val();
+        console.log(usersText);
+
+        if (usersText !== "") {
+            usersTimeofText.push(saveTextTime);
+            usersTextContent.push(usersText);
+
+            localStorage.setItem("Time", JSON.stringify(usersTimeofText));
+            localStorage.setItem("Text", JSON.stringify(usersTextContent));
+
+        }
+    });
+}
+
 
 
 // ```
