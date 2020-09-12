@@ -35,10 +35,10 @@ for (var i = 0; i < toDoListHours.length; i++) {
     timeColumn.addClass("col-sm-2 hour");
 
     // add time to time blocks
-    if (toDoListHours[i] < hour){
+   /* if (toDoListHours[i] < hour){
         timeColumn.text(toDoListHours[i] + ":00");
         timeColumn.attr("style", "background-color:lightGrey");
-    }
+   */
     newRow.append(timeColumn);
 
     // column for text/description area
@@ -51,6 +51,21 @@ for (var i = 0; i < toDoListHours.length; i++) {
     saveBtn.addClass("col-sm-2 saveBtn");
     newRow.append(saveBtn);
 
+    // changes text area color based on current time
+    colorBlock(hour);
+
+}
+// function to change text area color based on current time
+function colorBlock(hour){
+ if(toDoListHours[i] < hour){
+     eventBlock.addClass('past');
+ }
+ else if(toDoListHours[i] == hour){
+     eventBlock.addClass('present');
+ }
+ else{
+     eventBlock.addClass('future');
+ }
 }
 
 
