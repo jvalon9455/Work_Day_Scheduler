@@ -3,9 +3,10 @@ console.log("You got this!")
 var m = moment();
 var toDoListHours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 
+// add current date to browser
 $(document).ready(function () {
-    var currentDate = $("#currentDay");
-    $("#currentDay").text(m.format("dddd MMM Do YYYY"));
+    var currentDate = $("#currentDayDisplay");
+    $("#currentDayDisplay").text(m.format("dddd MMM Do YYYY"));
     
 })
 
@@ -21,15 +22,23 @@ mainContainer.addClass()
 
 // loop the array and create columns and rows for seperate time schedule
 for (var i = 0; i < toDoListHours.length; i++) {
+
+    // created new rows for time/text/and save button
+    var hour = new Date().getHours();
     var newRow = $("<div>");
     newRow.addClass("row time-block");
     mainContainer.append(newRow);
-    console.log(toDoListHours);
-
+    //console.log(toDoListHours);
+    console.log(hour);
     // column for time
     var timeColumn = $("<div>");
     timeColumn.addClass("col-sm-2 hour");
-    timeColumn.text(toDoListHours[i] + ":00");
+
+    // add time to time blocks
+    if (toDoListHours[i] < hour){
+        timeColumn.text(toDoListHours[i] + ":00");
+        timeColumn.attr("style", "background-color:lightGrey");
+    }
     newRow.append(timeColumn);
 
     // column for text/description area
@@ -38,12 +47,9 @@ for (var i = 0; i < toDoListHours.length; i++) {
     newRow.append(eventBlock);
 
     // column for save button
-    var saveBtn = $("<div>");
+    var saveBtn = $("<button>");
     saveBtn.addClass("col-sm-2 saveBtn");
     newRow.append(saveBtn);
-
-
-
 
 }
 
