@@ -56,6 +56,7 @@ After the user has written in their errand, they should be able to refresh the p
 
 ## Links
     *Repository: https://github.com/jvalon9455/Work_Day_Scheduler
+    *Working Link: https://jvalon9455.github.io/Work_Day_Scheduler/
     
 ## CREDITS
     *Bootstrap
